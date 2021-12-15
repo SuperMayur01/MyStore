@@ -1,0 +1,29 @@
+<!-- <ng-template *ngIf="product"> -->
+<!-- <div class="container-fluid product-container">
+    <div class="row m-4"> -->
+<div class="product-container">
+  <a routerLink="/product/{{ product.id }}">
+    <img
+      class="img-fluid product-image"
+      src="{{ product.url }}"
+      alt="product image"
+    />
+  </a>
+  <p>{{ product.name }}</p>
+  <p>$ {{ product.price }}</p>
+  <p>{{ product.name }}</p>
+  <select [(ngModel)]="noOfItems" name="items" id="items" class="select-input">
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <br />
+  <button class="btn btn-primary" (click)="addToCart(product)">
+    Add to cart
+  </button>
+</div>
+<!-- </div>
+  </div> -->
+<!-- </ng-template> -->

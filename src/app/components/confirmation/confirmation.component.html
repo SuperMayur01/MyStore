@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row m-4">
+    <div class="col-6 offset-3 p-4 text-center">
+      <div *ngIf="orderDetails.name === ''; else elseBlock">
+        <h2 class="text-danger text-center">No order summary to show!</h2>
+        <h6 class="text-secondary text-center pt-4">
+          Kindly add products to cart and checkout to view order summary.
+        </h6>
+        <h6 class="text-center pt-4">
+          <a routerLink="/"
+            ><button class="btn btn-primary">Go to all products</button></a
+          >
+        </h6>
+      </div>
+
+      <ng-template #elseBlock>
+        <h1 class="text-success">Order Success!</h1>
+        <h6 class="pt-3">Thank you <b>{{orderDetails.name}}</b>!</h6>
+        <h6 class="pt-1">Your <b>${{orderDetails.total}}</b> order is confirmed!</h6>
+        <h6 class="pt-1">Please allow 1-3 business day(s) for shipping.</h6>
+        <h6 class="text-center pt-4">
+            <a routerLink="/"
+              ><button class="btn btn-primary">Back to product list</button></a
+            >
+          </h6>
+
+      </ng-template>
+    </div>
+  </div>
+</div>

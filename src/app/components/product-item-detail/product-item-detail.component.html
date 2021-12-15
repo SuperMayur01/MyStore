@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row m-4">
+    <div class="col-3 offset-3 p-4">
+        <img
+          class="img-fluid"
+          src="{{ displayProduct.url }}"
+          alt="displayProduct image"
+        />
+      </div>
+      <div class="col-3 p-4">
+        <div class="p-1">
+          <b>{{ displayProduct.name }}</b>
+        </div>
+
+        <div class="p-1">$ {{ displayProduct.price }}</div>
+        <div class="p-1">
+            {{ displayProduct.description }}
+        </div>
+        <select
+          [(ngModel)]="noOfItems"
+          name="items"
+          id="items"
+          class="select-input form-control mt-2"
+        >
+          <option value="1" selected>1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <button class="btn btn-primary" (click)="addToCart(displayProduct)">
+            Add to cart
+        </button>
+        <div class="mt-2">
+        <a routerLink="/"><i class="bi bi-arrow-left"></i><span>Go to all products</span></a>
+    </div>
+      </div>
+
+  </div>
+</div>

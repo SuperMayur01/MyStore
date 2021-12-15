@@ -1,27 +1,56 @@
 # MyStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
+## Dependencies
+
+Run `npm install` to leverage all dependencies and get started with the project.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Components
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`product-list` : default/home page
+`product-item` : child component of `product-list` used to render all products
+`product-item-detail` : details of particular product
+`cart`: added products and form
+`confirmation` : order summary
 
-## Build
+## Services
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`Product Service` : to fetch products, make changes to cart etc.
+`Order Service` : to set and fetch order details for confirmation page
 
-## Running unit tests
+## Model
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`Product` : to store data from http get request
+`CartProduct` : to store cart data
+`OrderDetails` : to store order summary
 
-## Running end-to-end tests
+## Asset
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+`data.json` : contains products
 
-## Further help
+## Routes
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+`/` is the default route which shows `product list`
+`/product/:id` shows a particular `product details`
+`/cart` shows the item added to the `cart`
+`/order/success` shows `order summary`
+
+## Navigation
+
+`Header` contains links to `product list` and `cart` pages
+
+From `Product List` page :
+click on any product image to open `product details`
+
+From `Product details` page:
+click on link to redirect back to `product list` page
+
+From `Cart` page:
+click on product image to redirect to `product detail page`
+click on submit form to redirect to `confirmation` page
+
+From `confirmation` page:
+Click on button to redirect to `product list` page

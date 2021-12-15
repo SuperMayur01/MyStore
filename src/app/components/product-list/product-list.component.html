@@ -1,0 +1,14 @@
+<!-- <img class="img-fluid  border border-secondary p-2" src = {{product.url}} alt = "product image"> -->
+
+<div class="container-fluid product-container">
+  <div class="row m-4">
+    <!-- <div class="col-12"> -->
+      <app-product-item
+      class="col-3 offset-1"
+        *ngFor="let product of productList"
+        [product]="product"
+        (updateCartItems) = "updateCartItems($event)"
+      ></app-product-item>
+    <!-- </div> -->
+  </div>
+</div>
