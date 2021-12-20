@@ -59,4 +59,8 @@ export class ProductsService {
     }
   }
 
+  clearCart(){
+    this.productArr = []
+  }
+
 }

@@ -54,13 +54,18 @@
             required
             placeholder="(minimum 3 characters)"
             [(ngModel)]="name"
+            (ngModelChange)="validateName()"
             #nameField="ngModel"
-            disabled={{!cartProductList.length}}
+            disabled="{{ !cartProductList.length }}"
           />
         </div>
-        <div class="text-danger" *ngIf="nameField.errors && nameField.dirty">
+        <div
+          class="text-danger"
+          *ngIf="formFieldErrors.name && nameField.dirty"
+        >
           Please provide a valid name
         </div>
+
         <div class="form-group">
           <label class="form-label" for="address">Address</label>
           <textarea
@@ -71,12 +76,13 @@
             required
             placeholder="(minimum 6 characters)"
             [(ngModel)]="address"
+            (ngModelChange)="validateAddress()"
             #addressField="ngModel"
-            disabled={{!cartProductList.length}}
+            disabled="{{ !cartProductList.length }}"
           ></textarea>
           <div
             class="text-danger"
-            *ngIf="addressField.errors && addressField.dirty"
+            *ngIf="formFieldErrors.address && addressField.dirty"
           >
             Please provide a valid address
           </div>
@@ -93,17 +99,25 @@
             required
             placeholder="(16-digit number)"
             [(ngModel)]="creditcard"
+            (ngModelChange)="validateCardNo()"
             #cardField="ngModel"
-            disabled={{!cartProductList.length}}
+            disabled="{{ !cartProductList.length }}"
           />
-          <div class="text-danger" *ngIf="cardField.errors && cardField.dirty">
+          <div
+            class="text-danger"
+            *ngIf="formFieldErrors.card && cardField.dirty"
+          >
             Please provide a valid card number
           </div>
         </div>
         <p class="text-secondary small">
           We'll never share your payment details with anyone else.
         </p>
-        <button type="submit" class="btn btn-primary" [disabled]="form.invalid || !cartProductList.length">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="form.invalid || !cartProductList.length"
+        >
           Submit
         </button>
       </form>

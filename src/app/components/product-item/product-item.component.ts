@@ -32,7 +32,7 @@ export class ProductItemComponent implements OnInit {
     const cartProduct: CartProduct = {...product, items:0}
     cartProduct["items"] = parseInt(this.noOfItems);
     this.updateCartItems.emit(cartProduct)
-    alert(`${cartProduct.name}(s) has/have been added to cart`)
+    alert(`${cartProduct.name} has/have been added to cart`)
   }
 
   

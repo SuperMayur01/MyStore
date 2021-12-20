@@ -19,12 +19,42 @@ export class CartComponent implements OnInit {
   cartProductList: CartProduct[] = [];
   total: string = ""
 
+  formFieldErrors = {
+    name: "",
+    address: "",
+    card: ""
+  }
+
   constructor(private productsService: ProductsService, private orderService: OrderService, private router: Router) {
 
   }
 
   ngOnInit(): void {
     this.cartProductList = this.productsService.getProductFromCart()
+  }
+
+  validateName() {
+    if (this.name.length < 3) {
+      this.formFieldErrors.name = "Please provide a valid name"
+    } else {
+      this.formFieldErrors.name = ""
+    }
+  }
+
+  validateAddress() {
+    if (this.address.length < 6) {
+      this.formFieldErrors.address = "Please provide a valid address"
+    } else {
+      this.formFieldErrors.address = ""
+    }
+  }
+
+  validateCardNo() {
+    if (this.creditcard.length < 16 || this.creditcard.length > 16) {
+      this.formFieldErrors.card = "Please provide a valid card number"
+    } else {
+      this.formFieldErrors.card = ""
+    }
   }
 
   submitForm(e: Event): void {
@@ -47,10 +77,13 @@ export class CartComponent implements OnInit {
     this.total = ""
 
     this.router.navigate(['/order/success']);
+    this.productsService.clearCart();
+
   }
 
   removeItem(cartProduct: CartProduct): void {
     this.cartProductList = this.productsService.deleteProductsFromCart(cartProduct)
+    alert(`${cartProduct.name} has/have been removed from cart.`)
   }
 
   updateCartProduct(event: any, cartProduct: CartProduct): void {

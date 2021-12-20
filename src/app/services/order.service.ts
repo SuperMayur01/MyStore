@@ -22,4 +22,5 @@ export class OrderService {
   setOrderDetails(orderObject:OrderDetails): void {
     this.orderDetails = orderObject
   }
+
 }
