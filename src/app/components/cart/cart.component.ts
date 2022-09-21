@@ -50,7 +50,7 @@ export class CartComponent implements OnInit {
   }
 
   validateCardNo() {
-    if (this.creditcard.length < 16 || this.creditcard.length > 16) {
+    if (this.creditcard.length < 16 || this.creditcard.length > 16 || isNaN(Number(this.creditcard))) {
       this.formFieldErrors.card = "Please provide a valid card number"
     } else {
       this.formFieldErrors.card = ""
